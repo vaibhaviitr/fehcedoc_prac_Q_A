@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+
+/**
+ * @author VAIBHAV
+ *
+ */
+public class HOMDEL {
+	BufferedReader br = new Bufferedreader(new InputStreamReader(System.in));
+	PrintWriter out = new PrintWriter(System.out);
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+}

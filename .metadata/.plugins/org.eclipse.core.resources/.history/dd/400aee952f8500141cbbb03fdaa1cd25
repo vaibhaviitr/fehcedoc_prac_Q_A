@@ -1,0 +1,61 @@
+import java.util.Scanner;
+class Pantagon{
+	char A[] = {'A','B','C','D','E','A','C','E','B','D'};
+	int curr;
+
+	void Setindex(char x,char y){
+		a:for(int i=0;i<A.length;i++){
+			if(A[i]==x&&A[(i+1)%A.length]==y){
+				curr = (i+1)%A.length;
+				System.out.print(i+" "+(i+1)%A.length);break a;
+			}
+			else if (A[i]==y&&A[(i+1)%A.length]==x){
+				curr = i;
+				System.out.print((i+1)%A.length+" "+i);break a;
+			}
+		}
+	}
+
+	void SolveNext(char x){
+		if(x == A[curr]){
+			for (int i=curr;;i++) {
+				if(x == A[(i+3)%A.length]){
+					curr = (i+3)%A.length;
+					System.out.print(curr);
+					break;
+				}
+				else continue;
+			}
+
+		}
+		else if(x == A[(curr+1)%A.length]){
+			curr = (curr+1)%A.length;
+			System.out.print(curr);
+		}
+		else if(x==A[(curr-1)%A.length]){
+			curr = (curr-1)%A.length;
+			System.out.print(curr);
+		}
+		else {             //try to use try catch statement throw-etc
+			System.out.print("no solution");
+		}
+	}
+
+}
+class MAGICPANTAGON{
+
+	public static void main(String[] args) {
+		Scanner Sc = new Scanner(System.in);
+		int T = Sc.nextInt();
+		char C[];
+		while(T--!=0){
+			String St = Sc.next();
+			C = St.toCharArray();
+			Pantagon P = new Pantagon();
+			P.Setindex(C[0],C[1]);
+			for (int i=2;i<C.length;i++) {
+				P.SolveNext(C[i]);
+			}
+		}
+	}
+}

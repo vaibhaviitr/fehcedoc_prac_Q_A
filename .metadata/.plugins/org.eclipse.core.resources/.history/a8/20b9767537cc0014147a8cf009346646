@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.StringTokenizer;
+
+public class HOMDEL {
+	public static void main(String[] args)throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		int N = Integer.parseInt(br.readLine());
+		int A[][] = new int[N][N];//cost of i to j;
+		for(int i=0;i<N;i++){
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			for(int j=0;j<N;j++)
+				A[i][j]=Integer.parseInt(st.nextToken());
+		}
+		int M = Integer.parseInt(br.readLine());
+		while(M-->0){
+			StringTokenizer st = new StringTokenizer(br.readLine());
+				int S = Integer.parseInt(st.nextToken());
+				int G = Integer.parseInt(st.nextToken());
+				int D = Integer.parseInt(st.nextToken());
+				int ans = A[S][G]+A[G][D];
+				out.print(ans+" "+(ans-A[S][D])+"\n");
+		}
+		out.flush();
+	}
+}
